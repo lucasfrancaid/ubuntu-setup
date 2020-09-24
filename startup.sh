@@ -80,6 +80,9 @@ sudo apt install awscli -y
 echo "${COLOR_CYAN}AWS and dependencies version:${COLOR_UNSET}"
 echo "$(aws --version)"
 
+echo "${COLOR_GREEN}Installing Serverless${COLOR_UNSET}"
+sudo npm install serverless -g
+
 echo "${COLOR_GREEN}Installing Dbeaver via snap${COLOR_UNSET}"
 sudo snap install dbeaver
 
