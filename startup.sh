@@ -55,10 +55,10 @@ sudo apt update && sudo apt install google-chrome-stable
 # DOCKER
 # -------------------------------------
 echo "${COLOR_GREEN}Installing Docker${COLOR_UNSET}"
-sudo apt install apt-transport-https ca-certificates curl gnupg software-properties-common
+sudo apt install -y apt-transport-https ca-certificates curl gnupg software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-sudo apt install docker-ce
+sudo apt install -y docker-ce
 sudo systemctl start docker && sudo systemctl enable docker
 echo "${COLOR_CYAN}Docker version:${COLOR_UNSET}"
 echo "$(docker --version)"
@@ -96,12 +96,12 @@ code --install-extension sdras.vue-vscode-snippets
 # LANGUAGES, PACKAGES MANAGERS AND UTILS
 # -------------------------------------
 echo "${COLOR_GREEN}Installing Python3, PIP3 and VENV${COLOR_UNSET}"
-sudo apt install python3
+sudo apt install -y python3
 sudo apt install -y python3-pip
 sudo apt install -y python3-venv
 
 echo "${COLOR_GREEN}Installing Python2, PIP and Virtualenv${COLOR_UNSET}"
-sudo apt install python2
+sudo apt install -y python2
 curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 sudo python2 get-pip.py && rm get-pip.py
 
@@ -113,7 +113,7 @@ sudo apt install -y nodejs
 echo "${COLOR_GREEN}Installing Yarn${COLOR_UNSET}"
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install yarn
+sudo apt update && sudo apt install -y yarn
 
 # -------------------------------------
 # CLOUD COMPUTING
@@ -154,7 +154,7 @@ echo "${COLOR_YELLOW}Do you want install gnome tweaks and gnome shell to manage 
 read install_gnome_theme
 if echo "$install_gnome_theme" | grep -iq "^y" ;then
 	echo "${COLOR_GREEN}Installing Gnome tweaks and shell to manage themes${COLOR_UNSET}"
-	sudo apt install gnome-tweaks gnome-shell-extensions
+	sudo apt install -y gnome-tweaks gnome-shell-extensions
 	echo "${COLOR_YELLOW}Press Alt+F2, then type r and press Enter to restart Gnome${COLOR_UNSET}"
 else
 	echo "${COLOR_YELLOW}Ok, finished installation. :)${COLOR_UNSET}"
