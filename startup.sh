@@ -91,6 +91,7 @@ code --install-extension formulahendry.code-runner
 code --install-extension octref.vetur
 code --install-extension jcbuisson.vue
 code --install-extension sdras.vue-vscode-snippets
+code --install-extension ritwickdey.liveserver
 
 # -------------------------------------
 # LANGUAGES, PACKAGES MANAGERS AND UTILS
@@ -137,6 +138,12 @@ sudo snap install dbeaver-ce
 # -------------------------------------
 echo "${COLOR_GREEN}Installing Discord via snap${COLOR_UNSET}"
 sudo snap install discord
+
+# -------------------------------------
+# MUSIC APP
+# -------------------------------------
+echo "${COLOR_GREEN}Installing Spotify via snap${COLOR_UNSET}"
+sudo snap install spotify
 
 # -------------------------------------
 # REQUEST APPS
