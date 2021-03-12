@@ -19,10 +19,10 @@ sudo apt dist-upgrade -y
 # CLI TOOLS
 # -------------------------------------
 echo "${COLOR_GREEN}Installing curl${COLOR_UNSET}"
-sudo apt install curl -y
+sudo apt install -y curl
 
 echo "${COLOR_GREEN}Installing git${COLOR_UNSET}"
-sudo apt install git -y
+sudo apt install -y git
 
 echo "${COLOR_YELLOW}Type your GIT user.name"${COLOR_UNSET}
 echo "For example: '${COLOR_BLUE}Lucas França'${COLOR_UNSET}"
@@ -35,7 +35,7 @@ read git_config_user_email
 git config --global user.email $git_config_user_email
 
 echo "${COLOR_GREEN}Installing xclip${COLOR_UNSET}"
-sudo apt install xclip -y
+sudo apt install -y xclip
 
 echo "${COLOR_GREEN}Generating SSH Key${COLOR_UNSET}"
 ssh-keygen -t rsa -b 4096 -C $git_config_user_email
@@ -78,8 +78,8 @@ sudo apt update && sudo apt install code
 
 echo "${COLOR_GREEN}Installing extensions to VSCode${COLOR_UNSET}"
 code --install-extension ms-python.python
+code --install-extension ms-toolsai.jupyter
 code --install-extension magicstack.MagicPython
-code --install-extension batisteo.vscode-django
 code --install-extension esbenp.prettier-vscode
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension VisualStudioExptTeam.vscodeintellicode
@@ -87,10 +87,7 @@ code --install-extension dracula-theme.theme-dracula
 code --install-extension PKief.material-icon-theme
 code --install-extension coenraadS.bracket-pair-colorizer-2
 code --install-extension eamodio.gitlens
-code --install-extension formulahendry.code-runner
-code --install-extension octref.vetur
-code --install-extension jcbuisson.vue
-code --install-extension sdras.vue-vscode-snippets
+code --install-extension adpyke.codesnap
 code --install-extension ritwickdey.liveserver
 
 # -------------------------------------
@@ -120,12 +117,28 @@ sudo apt update && sudo apt install -y yarn
 # CLOUD COMPUTING
 # -------------------------------------
 echo "${COLOR_GREEN}Installing aws-cli${COLOR_UNSET}"
-sudo apt install awscli -y
+sudo apt install -y awscli
 echo "${COLOR_CYAN}AWS and dependencies version:${COLOR_UNSET}"
 echo "$(aws --version)"
 
 echo "${COLOR_GREEN}Installing Serverless${COLOR_UNSET}"
 sudo npm install serverless -g
+
+# -------------------------------------
+# SCREEN RECORD & STREAMING
+# -------------------------------------
+echo "${COLOR_GREEN}Installing OBS Studio${COLOR_UNSET}"
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt install -y obs-studio
+
+# -------------------------------------
+# DEVICE SHARE
+# -------------------------------------
+echo "${COLOR_GREEN}Installing Barrier${COLOR_UNSET}"
+sudo apt install -y barrier
+
+echo "${COLOR_GREEN}Installing Scrcpy${COLOR_UNSET}"
+sudo apt install -y scrcpy
 
 # -------------------------------------
 # DATABASE MANAGER
@@ -153,6 +166,14 @@ sudo snap install postman
 
 echo "${COLOR_GREEN}Installing Insomnia via snap${COLOR_UNSET}"
 sudo snap install insomnia
+
+# -------------------------------------
+# TERMINAL OH MY ZSH
+# -------------------------------------
+echo "${COLOR_GREEN}Installing Oh My Zsh${COLOR_UNSET}"
+sudo apt install zsh
+chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # -------------------------------------
 # THEME
